@@ -15,7 +15,8 @@ Including another URLconf
 """
 
 
-from currency.views import hello_world
+from currency.views import contact_us, hello_world
+
 
 from django.contrib import admin
 from django.urls import path
@@ -26,6 +27,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 
     # currency
+    path('contact-us/', contact_us),
     path('hello-world/', hello_world),
     # path('gen-pass/', generate_password)
+
 ]
