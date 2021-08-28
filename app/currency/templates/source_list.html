@@ -1,0 +1,18 @@
+{% extends 'base.html' %}}
+
+{% block main_content %}
+<!--<a href ='#'>Source</a>-->
+<br>
+<table>
+    <tr>
+        <th>Source URL</th>
+        <th>Name</th>
+    </tr>
+    {% for source in source_list %}
+    <tr>
+        <td>{{source.source_url}}</td>
+        <td>{{source.name}}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

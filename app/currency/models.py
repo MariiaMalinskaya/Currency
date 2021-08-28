@@ -14,3 +14,8 @@ class ContactUs(models.Model):
     lastname = models.CharField(max_length=20)
     phone = models.IntegerField()
     mail = models.EmailField(max_length=100)
+
+
+class Source(models.Model):
+    source_url = models.CharField(max_length=255)
+    name = models.CharField(max_length=64)

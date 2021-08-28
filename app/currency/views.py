@@ -1,14 +1,18 @@
-from currency.models import ContactUs, Rate
+from currency.models import ContactUs, Rate, Source
 
-# from django.http import HttpResponse
+
+# from currency.forms import RateForm
+from django.http import HttpResponse
 # from currency.utils import generate_password as gen_pass
 
-# Create your views here.
 from django.shortcuts import render
+
 
 
 # def hello_world(request):
 #     return HttpResponse('Hello World')
+
+
 def index(request):
     return render(request, 'index.html')
 
@@ -43,6 +47,13 @@ def rate_list(request):
     }
     return render(request, 'rate_list.html', context=context)
 
+
+def rate_create(request):
+    # form = RateForm()
+    context = {
+        # 'form': form
+    }
+    return render(request, 'rate_create.html', context=context)
     # result =[]
     # for rate in rates:
     #     result.append(
@@ -56,6 +67,18 @@ def rate_list(request):
     #     'message': f'Current time : {datetime.now()}'
 
     # }
+def get_source_list(request):
+    sources = Source.objects.all()
+    # result =[]
+    # for source in sources:
+    #     result.append(
+    #         f'Id:{source.id} URL: {source.source_url} Name: {source.name}</br>'
+    #     )
+    # return HttpResponse(str(result))
+    context = {
+        'source_list': sources,
+    }
+    return render(request, 'source_list.html', context=context)
 
 #
 # def response_codes(request):

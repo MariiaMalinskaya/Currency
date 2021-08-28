@@ -1,7 +1,8 @@
 {% extends 'base.html' %}}
 
 {% block main_content %}
-
+<a href ='/rate/create/'>Create Rate</a>
+<br>
 <table>
     <tr>
         <th style  = 'background-color: yellow'>Sale</th>
@@ -16,6 +17,6 @@
         <td>{{rate.source}}</td>
         <td>{{rate.currency_type}}</td>
     </tr>
-    {% endfor %}}
+    {% endfor %}
 </table>
 {% endblock %}
