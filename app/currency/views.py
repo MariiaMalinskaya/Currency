@@ -1,8 +1,5 @@
 from currency.models import ContactUs, Rate
 
-from django.http import HttpResponse
-
-
 # from django.http import HttpResponse
 # from currency.utils import generate_password as gen_pass
 
@@ -24,7 +21,7 @@ def index(request):
 def contact_us(request):
     contacts = ContactUs.objects.all()
     context = {
-    'contacts': contacts,
+        'contacts': contacts,
     }
     return render(request, 'contact_us.html', context=context)
 
@@ -42,7 +39,7 @@ def rate_list(request):
     rates = Rate.objects.all()
 
     context = {
-    'rate_list': rates,
+        'rate_list': rates,
     }
     return render(request, 'rate_list.html', context=context)
 
@@ -60,6 +57,7 @@ def rate_list(request):
 
     # }
 
-def response_codes(request):
-    response = HttpResponse("Response", status=404)
-    return response
+#
+# def response_codes(request):
+#     response = HttpResponse("Response", status=404)
+#     return response
