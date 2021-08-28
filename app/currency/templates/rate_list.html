@@ -1,0 +1,21 @@
+{% extends 'base.html' %}}
+
+{% block main_content %}
+
+<table>
+    <tr>
+        <th style  = 'background-color: yellow'>Sale</th>
+        <th style  = 'background-color: yellow'>Buy</th>
+        <th style  = 'background-color: yellow'>Source</th>
+        <th style  = 'background-color: yellow'>Type</th>
+    </tr>
+    {% for rate in rate_list %}
+    <tr>
+        <td>{{rate.sale}}</td>
+        <td>{{rate.buy}}</td>
+        <td>{{rate.source}}</td>
+        <td>{{rate.type}}</td>
+    </tr>
+    {% endfor %}}
+</table>
+{% endblock %}
