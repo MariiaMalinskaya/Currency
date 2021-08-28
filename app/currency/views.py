@@ -1,14 +1,9 @@
 from currency.models import ContactUs, Rate, Source
 
-
 # from currency.forms import RateForm
-from django.http import HttpResponse
 # from currency.utils import generate_password as gen_pass
 
 from django.shortcuts import render
-
-
-
 # def hello_world(request):
 #     return HttpResponse('Hello World')
 
@@ -67,6 +62,8 @@ def rate_create(request):
     #     'message': f'Current time : {datetime.now()}'
 
     # }
+
+
 def get_source_list(request):
     sources = Source.objects.all()
     # result =[]
