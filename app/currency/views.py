@@ -1,5 +1,8 @@
+from currency.models import ContactUs
 
-from django.shortcuts import render
+from django.http import HttpResponse
+
+
 # from django.http import HttpResponse
 # from currency.utils import generate_password as gen_pass
 
@@ -13,3 +16,14 @@ def hello_world(requests):
 #     password = gen_pass(password_len)
 #     return HttpResponse(password)
 
+
+def contact_us(requests):
+    contacts = ContactUs.objects.all()
+    result = []
+    for contacts in contacts:
+        result.append(
+            f'Name:{contacts.firstname} {contacts.lastname} Contact Info: {contacts.phone} {contacts.mail}'
+        )
+    return HttpResponse(str(result))
+
+    # return HttpResponse("Contact Us")
