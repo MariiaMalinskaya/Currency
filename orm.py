@@ -47,3 +47,12 @@ class Rate:
 
     def get_rate_list(self):
         return f'{self.sale} {self.buy} {self.source} {self.currency_type} {self.created}'
+
+
+class Source:
+    def __init__(self, source_url, name):
+        self.source_url = source_url
+        self.name = name
+
+    def get_source(self):
+        return f'{self.source_url} {self.name}'
