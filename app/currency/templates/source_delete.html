@@ -1,0 +1,16 @@
+{% extends 'base.html' %}}
+
+{% block main_content %}
+
+Source Delete<br>
+Are you sure you want to delete object with id : {{object.id}}?
+
+<form method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type = submit>
+        Delete
+    </button>
+
+</form>
+{% endblock %}
