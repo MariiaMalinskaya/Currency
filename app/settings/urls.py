@@ -14,7 +14,11 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 
-from currency.views import contact_us, get_source_list, index, rate_create, rate_list
+from currency.views import (
+    contact_us, get_source_list, index,
+    rate_create, rate_delete, rate_details, rate_list, rate_update,
+    source_create, source_delete, source_details, source_update
+    )
 
 from django.contrib import admin
 from django.urls import path
@@ -29,7 +33,14 @@ urlpatterns = [
     path('contact-us/', contact_us),
     path('rate/list/', rate_list),
     path('rate/create/', rate_create),
-    path('source-list/', get_source_list)
+    path('rate/details/<int:rate_id>/', rate_details),
+    path('rate/update/<int:rate_id>/', rate_update),
+    path('rate/delete/<int:rate_id>/', rate_delete),
+    path('source-list/', get_source_list),
+    path('source/create/', source_create),
+    path('source/details/<int:source_id>/', source_details),
+    path('source/update/<int:source_id>/', source_update),
+    path('source/delete/<int:source_id>/', source_delete),
     # path('response-codes', response_codes),
     # path('hello-world/', hello_world),
 

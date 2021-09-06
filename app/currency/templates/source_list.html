@@ -1,17 +1,21 @@
 {% extends 'base.html' %}}
 
 {% block main_content %}
-<!--<a href ='#'>Source</a>-->
+<a href ='/source/create/'>Create Source</a>
 <br>
 <table>
     <tr>
         <th>Source URL</th>
         <th>Name</th>
+        <th>Action</th>
     </tr>
     {% for source in source_list %}
     <tr>
         <td>{{source.source_url}}</td>
         <td>{{source.name}}</td>
+        <td><a href="/source/details/{{ source.id }}/">Details</a></td>
+        <td><a href="/source/update/{{ source.id }}/">Update</a></td>
+        <td><a href="/source/delete/{{ source.id }}/">Delete</a></td>
     </tr>
     {% endfor %}
 </table>
