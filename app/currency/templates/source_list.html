@@ -1,7 +1,7 @@
 {% extends 'base.html' %}}
 
 {% block main_content %}
-<a href ='/source/create/'>Create Source</a>
+<a href ="{% url 'currency:source-create' %}">Create Source</a>
 <br>
 <table>
     <tr>
@@ -13,9 +13,9 @@
     <tr>
         <td>{{source.source_url}}</td>
         <td>{{source.name}}</td>
-        <td><a href="/source/details/{{ source.id }}/">Details</a></td>
-        <td><a href="/source/update/{{ source.id }}/">Update</a></td>
-        <td><a href="/source/delete/{{ source.id }}/">Delete</a></td>
+        <td><a href="{% url 'currency:source-details' source.pk %}">Details</a></td>
+        <td><a href="{% url 'currency:source-update' source.pk %}">Update</a></td>
+        <td><a href="{% url 'currency:source-delete' source.pk %}">Delete</a></td>
     </tr>
     {% endfor %}
 </table>
