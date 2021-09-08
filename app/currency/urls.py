@@ -16,7 +16,7 @@ Including another URLconf
 
 from currency.views import (
     RateCreateView, RateDeleteView, RateDetailsView, RateListView, RateUpdateView, SourceCreateView, SourceDeleteView,
-    SourceDetailsView, SourceListView, SourceUpdateView, contact_us,
+    SourceDetailsView, SourceListView, SourceUpdateView, ContactUsView
 
 )
 
@@ -25,7 +25,7 @@ from django.urls import path
 # from currency.views import generate_password
 app_name = 'currency'
 urlpatterns = [
-    path('contact-us/', contact_us, name='contact-us'),
+    path('contactus/create', ContactUsView.as_view(), name='contact-us'),
     path('rate/list/', RateListView.as_view(), name='rate-list'),
     path('rate/create/', RateCreateView.as_view(), name='rate-create'),
     # path('rate/details/<int:rate_id>/', rate_details),

@@ -1,0 +1,20 @@
+{% extends 'base.html' %}}
+
+{% block main_content %}
+
+Contact Us
+
+<form method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+
+<!--    <input type="text" name="source">-->
+<!--    <input type="text" name="currency_type">-->
+<!--    <input type="number" name="sale">-->
+<!--    <input type="number" name="buy">-->
+    <button>
+        Submit
+    </button>
+
+</form>
+{% endblock %}

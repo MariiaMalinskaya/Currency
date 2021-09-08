@@ -12,8 +12,9 @@ class Rate(models.Model):
 class ContactUs(models.Model):
     firstname = models.CharField(max_length=20)
     lastname = models.CharField(max_length=20)
-    phone = models.IntegerField()
     mail = models.EmailField(max_length=100)
+    body = models.CharField(max_length=2056)
+    created = models.DateTimeField(auto_now_add=True)
 
 
 class Source(models.Model):

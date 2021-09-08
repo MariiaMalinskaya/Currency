@@ -4,6 +4,8 @@ from currency.models import ContactUs, Rate, Source
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, DeleteView, DetailView, ListView, UpdateView
+import smtplib
+from django.core.mail import send_mail
 
 
 # from currency.utils import generate_password as gen_pass
@@ -27,15 +29,56 @@ from django.views.generic import CreateView, DeleteView, DetailView, ListView, U
 #     password_len = int(request.GET.get('password-len'))
 #     password = gen_pass(password_len)
 #     return HttpResponse(password)
+# ContactUs function
+# def contact_us(request):
+#     contacts = ContactUs.objects.all()
+#     context = {
+#         'contacts': contacts,
+#     }
+#     return render(request, 'contact_us.html', context=context)
+class ContactUsView(CreateView):
+    model = ContactUs
+    success_url = reverse_lazy('index')
+    template_name = 'contactus_create.html'
+    fields = (
+        'firstname',
+        'lastname',
+        'mail',
+        'body',
+    )
 
-def contact_us(request):
-    contacts = ContactUs.objects.all()
-    context = {
-        'contacts': contacts,
-    }
-    return render(request, 'contact_us.html', context=context)
+    def form_valid(self, form):
+        firstname = form.cleaned_data['firstname']
+        lastname = form.cleaned_data['lastname']
+        body = form.cleaned_data['body']
+        mail = form.cleaned_data['mail']
+        full_email_body = f'''
+                Email From: {mail}
+                Body: {body}
+                '''
+        # subject =
+        send_mail(
+            # firstname,
+            lastname,
+            full_email_body,
+            'currency.testmail@gmail.com',
+            ['goldraccon@gmail.com'],
+            fail_silently=False,
+        )
 
+        return super().form_valid(form)
 
+        # fromaddr = 'currency.testmail@gmail.com'
+        # toaddrs = 'goldraccon@gmail.com'
+        # msg = 'Why,Oh why!'
+        # username = 'currency.testmail@gmail.com'
+        # password = 'Mijpyk-fisku2-qanmum'
+        # server = smtplib.SMTP('smtp.gmail.com:587')
+        # server.starttls()
+        # server.login(username, password)
+        # server.sendmail(fromaddr, toaddrs, msg)
+        # server.quit()
+        # return super().form_valid(form)
 # class version CRUD Rate
 
 class RateListView(ListView):

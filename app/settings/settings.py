@@ -126,3 +126,26 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 INTERNAL_IPS = [
     '127.0.0.1', ]
 #     '172.31.69.226',
+
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'currency.testmail@gmail.com'
+EMAIL_HOST_PASSWORD = 'Mijpyk-fisku2-qanmum'
+# SUPPORT_EMAIL = 'currency.testmail@gmail.com'
+
+
+
+# import smtplib
+# fromaddr = 'currency.testmail@gmail.com'
+# toaddrs  = 'goldraccoon@gmail.com'
+# msg = 'Why,Oh why!'
+# username = 'currency.testmail@gmail.com'
+# password = 'Mijpyk-fisku2-qanmum'
+# server = smtplib.SMTP('smtp.gmail.com:587')
+# server.starttls()
+# server.login(username,password)
+# server.sendmail(fromaddr, toaddrs, msg)
+# server.quit()
