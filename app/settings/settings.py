@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_extensions',
     'debug_toolbar',
+    'rangefilter',
+    'import_export',
     'currency',
 ]
 
@@ -134,7 +136,7 @@ EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'currency.testmail@gmail.com'
 EMAIL_HOST_PASSWORD = 'Mijpyk-fisku2-qanmum'
-# SUPPORT_EMAIL = 'currency.testmail@gmail.com'
+SUPPORT_EMAIL = 'currency.testmail@gmail.com'
 
 
 

@@ -6,7 +6,7 @@ from django.urls import reverse_lazy
 from django.views.generic import CreateView, DeleteView, DetailView, ListView, UpdateView
 import smtplib
 from django.core.mail import send_mail
-
+from django.conf import settings
 
 # from currency.utils import generate_password as gen_pass
 
@@ -56,13 +56,12 @@ class ContactUsView(CreateView):
                 Email From: {mail}
                 Body: {body}
                 '''
-        # subject =
+        subject = f'firstname,  lastname'
         send_mail(
-            # firstname,
-            lastname,
+            subject,
             full_email_body,
-            'currency.testmail@gmail.com',
-            ['goldraccon@gmail.com'],
+            'settings.EMAIL_HOST_USER',
+            ['settings.SUPPORT_EMAIL'],
             fail_silently=False,
         )
 
@@ -79,6 +78,8 @@ class ContactUsView(CreateView):
         # server.sendmail(fromaddr, toaddrs, msg)
         # server.quit()
         # return super().form_valid(form)
+
+
 # class version CRUD Rate
 
 class RateListView(ListView):
