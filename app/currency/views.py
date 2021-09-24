@@ -1,12 +1,14 @@
 from currency.forms import RateForm, SourceForm
 from currency.models import ContactUs, Rate, Source
 
-from django.shortcuts import render
+# from django.shortcuts import render
+from django.core.mail import send_mail
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, DeleteView, DetailView, ListView, UpdateView
-import smtplib
-from django.core.mail import send_mail
-from django.conf import settings
+
+
+# import smtplib
+# from django.conf import settings
 
 # from currency.utils import generate_password as gen_pass
 
@@ -53,10 +55,11 @@ class ContactUsView(CreateView):
         body = form.cleaned_data['body']
         mail = form.cleaned_data['mail']
         full_email_body = f'''
-                Email From: {mail}
-                Body: {body}
+                Personal Data : {firstname,lastname},
+                Email From: {mail},
+                Body: {body},
                 '''
-        subject = f'firstname,  lastname'
+        subject = f'''{firstname},  {lastname}'''
         send_mail(
             subject,
             full_email_body,

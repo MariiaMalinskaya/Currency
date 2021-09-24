@@ -138,8 +138,6 @@ EMAIL_HOST_USER = 'currency.testmail@gmail.com'
 EMAIL_HOST_PASSWORD = 'Mijpyk-fisku2-qanmum'
 SUPPORT_EMAIL = 'currency.testmail@gmail.com'
 
-
-
 # import smtplib
 # fromaddr = 'currency.testmail@gmail.com'
 # toaddrs  = 'goldraccoon@gmail.com'

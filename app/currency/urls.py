@@ -15,8 +15,8 @@ Including another URLconf
 """
 
 from currency.views import (
-    RateCreateView, RateDeleteView, RateDetailsView, RateListView, RateUpdateView, SourceCreateView, SourceDeleteView,
-    SourceDetailsView, SourceListView, SourceUpdateView, ContactUsView
+    ContactUsView, RateCreateView, RateDeleteView, RateDetailsView, RateListView, RateUpdateView, SourceCreateView,
+    SourceDeleteView, SourceDetailsView, SourceListView, SourceUpdateView
 
 )
 
